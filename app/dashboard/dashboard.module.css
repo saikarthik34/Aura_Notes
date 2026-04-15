@@ -1,0 +1,54 @@
+.dashboardContainer {
+  padding: 40px 0;
+}
+
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.welcomeText {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.notesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--glass-bg);
+  border: 1px dashed var(--glass-border);
+  border-radius: 16px;
+  margin-top: 40px;
+}
+
+.emptyStateIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.emptyState h2 {
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.loadingSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
