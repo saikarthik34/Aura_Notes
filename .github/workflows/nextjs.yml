@@ -1,0 +1,35 @@
+name: Next.js CI Workflow
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Build Next.js Project
+        run: npm run build
+        env:
+          MONGODB_URI: "mongodb://localhost:27017/test"
+          NEXTAUTH_SECRET: "dummy_secret_for_ci_build"
+          NEXTAUTH_URL: "http://localhost:3000"
