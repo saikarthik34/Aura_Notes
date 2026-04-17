@@ -10,6 +10,7 @@ export default function NoteModal({ isOpen, onClose, onSave, initialData }) {
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect */
     if (isOpen) {
       if (initialData) {
         setFormData({
@@ -21,6 +22,7 @@ export default function NoteModal({ isOpen, onClose, onSave, initialData }) {
         setFormData({ title: "", content: "", colorTag: COLORS[0] });
       }
     }
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, [isOpen, initialData]);
 
   if (!isOpen) return null;
